@@ -8,7 +8,7 @@ exports.register = (data, callback) => {
         if (error) {
             return callback(error);
         }
-        return callback(null, `Registration successful`);
+        return callback(null, results);
     }
   );
 };
@@ -61,7 +61,7 @@ exports.getDocumentById = (data, callback) => {
 exports.getDocumentByTitle = (data, callback) => {
     console.log(data);
     db.query(
-        `SELECT titulo,documento,UsuarioId,modificado_por FROM  documentos where titulo LIKE '%${data.titulo}%' or documento LIKE '%${data.titulo}%' `,
+        `SELECT id,titulo,documento,UsuarioId,modificado_por FROM  documentos where titulo = '${data.titulo}'  `,
         [],
         (error, results, fields) => {
             if (error) {

@@ -7,6 +7,9 @@ const bodyParser = require("body-parser");
 const usersRoutes = require("./routes/users.route");
 const documentsRoutes = require("./routes/documents.route");
 const historialRoutes = require("./routes/changeHistory.route");
+const cors = require('cors');
+
+app.use(cors());
 
 
 app.use(bodyParser.json());
@@ -33,6 +36,9 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use("/usuarios", usersRoutes);
 app.use("/documentos", documentsRoutes);
 app.use("/historial", historialRoutes);
+app.use("/",(req,res)=>{
+  res.status(200).send("* ---Documentation in the path / api-docs / ---*");
+});
 
 app.listen(3023,()=>{
     console.log("ready , listen");

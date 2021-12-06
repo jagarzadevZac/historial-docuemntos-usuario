@@ -162,13 +162,12 @@ router.post("/obtener-documento-busqueda", documentsController.getDocumentByTitu
  *              type: object
  *              required:
  *                 - titulo
- *                 - documento
  *              properties:
  *                  titulo:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 45
- *                      example: react2012update.pdf
+ *                      example: test 1
  * 
  *      responses:
  *          '200':

@@ -16,7 +16,7 @@ exports.register = (data, callback) => {
 
 exports.getHistoryById = (data, callback) => {
     db.query(
-        `SELECT u.nombre ,d.documento , h.fecha FROM historial_cambios h
+        `SELECT u.nombre ,d.titulo , h.fecha FROM historial_cambios h
         LEFT JOIN documentos d ON d.id = h.documentoId 
         LEFT JOIN  usuarios u ON u.id = h.UsuarioId
         WHERE h.documentoId = ?`,
